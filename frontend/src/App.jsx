@@ -17,8 +17,8 @@ import SearchBar from './components/SearchBar';
 import { ToastContainer, toast } from "react-toastify";
 import Verify from './pages/Verify';
 import "react-toastify/dist/ReactToastify.css";
-import Add from '../../admin/ecommerce/src/pages/Add.jsx';
-//import Add from "../../admin/ecommerce/src/pages/Add";
+//import Add from '../Add.jsx';
+import Add from "../../admin/ecommerce/src/pages/Add";
 console.log(toast);
 
 const App = () => {
@@ -29,7 +29,6 @@ const App = () => {
       <SearchBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/add" element={<Add />} />
         <Route path="/collection" element={<Collection />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
@@ -38,11 +37,11 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/place-order" element={<Placeorder />} />
         <Route path="/orders" element={<Orders />} />
-        <Route path="/verify" element={<Verify />} />
+        /<Route path="/verify" element={<Verify />} />
       </Routes>
       <Footer />
     </div>
   );
-}
+}/**/
 
 export default App
