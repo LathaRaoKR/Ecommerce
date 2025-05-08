@@ -18,7 +18,7 @@ import { ToastContainer, toast } from "react-toastify";
 import Verify from './pages/Verify';
 import "react-toastify/dist/ReactToastify.css";
 //import Add from '../Add.jsx';
-import Add from "../../admin/ecommerce/src/pages/Add";
+//import Add from "../../admin/ecommerce/src/pages/Add";
 console.log(toast);
 
 const App = () => {
