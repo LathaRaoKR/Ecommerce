@@ -26,3 +26,4 @@ app.get("/", (req, res) => {
 });
 
 export default serverless(app);
+module.exports.handler = serverless(app);
