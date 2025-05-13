@@ -16,7 +16,7 @@ import authUser from '../middleware/auth.js'
 const orderRouter = express.Router()
 
 //admin features
-orderRouter.post('/list',adminAuth,allOrders)
+orderRouter.post("/list",adminAuth,allOrders)
 orderRouter.post("/status", adminAuth, updateStatus);
 
 
@@ -32,4 +32,4 @@ orderRouter.post('/userorders',authUser,userOrders)
 //verify payment
 orderRouter.post('/verifyStripe',authUser,verifyStripe)
 orderRouter.post("/verifyRazorpay", authUser, verifyRazorpay);
-export default orderRouter 
+export default orderRouter ;
