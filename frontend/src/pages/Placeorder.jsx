@@ -75,7 +75,7 @@ const PlaceOrder = () => {
           const response = await axios.post(
             `${backendUrl}/api/order/place`,
             orderData,
-            { headers: { token } }
+            { headers: { Authorization: `Bearer ${token}` } }
           );
 
           if (response.data.success) {
@@ -89,17 +89,20 @@ const PlaceOrder = () => {
 
         // API calls for Stripe payment method
         case "stripe": {
-          const response = await axios.post(
+          const responseStripe = await axios.post(
             `${backendUrl}/api/order/stripe`,
             orderData,
             { headers: { token } }
           );
 
-          if (response.data.success) {
-            const { session_url } = response.data;
+          if (responseStripe.data.success) {
+            const { session_url } = responseStripe.data;
             window.location.replace(session_url);
           } else {
-            toast.error(response.data.message);
+            toast.error(
+              responseStripe.data.message 
+            );
+            
           }
           break;
         }
@@ -109,7 +112,11 @@ const PlaceOrder = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error(error.response.data.message);
+      toast.error(
+        error?.response?.data?.message ||
+          "Order placement failed. Please check your connection or try again later."
+      );
+      
     }
   };
 

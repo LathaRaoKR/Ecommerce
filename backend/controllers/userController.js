@@ -13,7 +13,7 @@ const createToken = (userId) => {
 // Route for user login
 export const loginUser = async (req, res) => {
   try {
-    const {name, email, password } = req.body;
+    const { email, password } = req.body;
 
     // Check if the user exists
     const user = await UserModel.findOne({ email });
@@ -118,7 +118,7 @@ export const adminLogin = async (req, res) => {
       email === process.env.ADMIN_EMAIL &&
       password === process.env.ADMIN_PASSWORD
     ) {
-      let token = jwt.sign(email + password, process.env.JWT_SECRET);
+      let token = jwt.sign({email,password}, process.env.JWT_SECRET);
       return res.status(200).json({
         success: true,
         message: "Admin signed in successfully",

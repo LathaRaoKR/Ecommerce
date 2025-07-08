@@ -41,9 +41,13 @@ const ShopContextProvider = ({ children }) => {
     if (token) {
       try {
         await axios.post(
-          backendUrl + "/api/cart/add",
+          backendUrl + '/api/cart/add',
           { itemId, size },
-          { headers: { token } }
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         );
       } catch (error) {
         console.error(error);
@@ -70,7 +74,7 @@ const ShopContextProvider = ({ children }) => {
     }
 
     setOrders([...tempOrders, ...newOrder]);
-    // setCartItems({}); // Optional: Clear cart after placing order
+     setCartItems({}); // Optional: Clear cart after placing order
   };
 
   // ✅ Get Cart Count
@@ -100,7 +104,8 @@ const ShopContextProvider = ({ children }) => {
         await axios.post(
           backendUrl + "/api/cart/update",
           { itemId, size, quantity },
-          { headers: { token } }
+         { headers: { Authorization: `Bearer ${token}` } } 
+
         );
       } catch (error) {
         console.error(error);
@@ -147,11 +152,11 @@ const ShopContextProvider = ({ children }) => {
   // ✅ Fetch User Cart
   const getUserCart = async (token) => {
     try {
-      const response = await axios.post(
-        backendUrl + "/api/cart/get",
-        {},
-        { headers: { token } }
-      );
+      const response = await axios.get(backendUrl + "/api/cart/get", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       if (response.data.success) {
         setCartItems(response.data.cartData);
       }

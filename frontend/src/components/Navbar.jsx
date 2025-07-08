@@ -28,7 +28,7 @@ const Navbar = () => {
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
         <li>
           <NavLink to="/" className="flex flex-col items-center gap-1">
-            <p>Home</p>
+            <p>HOME</p>
             <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden " />
           </NavLink>
         </li>
@@ -61,7 +61,7 @@ const Navbar = () => {
             setShowSearch(true);
           }}
           src={assets.search_icon}
-          className="w- cursor-pointer"
+          className="w-5 cursor-pointer"
           alt=""
         />
         {/*setShowSearch(true)---upon clicking search icon search bar is open with setshowsearch*/}
