@@ -6,7 +6,7 @@ import Add from "./pages/Add";
 import List from "./pages/List";
 import Orders from "./pages/Orders";
 import Login from "./components/Login";
-import Home from "../../../frontend/src/pages/Home";
+
 import { ToastContainer} from "react-toastify";
 
 
